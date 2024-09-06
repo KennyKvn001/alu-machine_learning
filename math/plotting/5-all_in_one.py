@@ -35,7 +35,7 @@ ax1.plot(np.arange(0, 11), y0, "r-")
 ax1.set_title("Plot 1", fontsize="x-small")
 ax1.set_xlabel("x", fontsize="x-small")
 ax1.set_ylabel("y", fontsize="x-small")
-t
+
 ax2 = fig.add_subplot(gs[0, 1])
 ax2.scatter(x1, y1, color="m", s=1)
 ax2.set_title("Men's Height vs Weight", fontsize="x-small")
@@ -58,7 +58,7 @@ ax4.set_ylabel("Fraction Remaining", fontsize="x-small")
 ax4.legend(loc="upper right", fontsize="x-small")
 ax4.set_xlim(0, 20000)
 ax4.set_ylim(0, 1)
-s
+
 ax5 = fig.add_subplot(gs[2, :])
 ax5.hist(student_grades, bins=np.arange(0, 101, 10), edgecolor="black")
 ax5.set_title("Project A", fontsize="x-small")
