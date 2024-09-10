@@ -5,7 +5,7 @@ Module `2-size_me_please`
 This module provides a function to calculate the shape of a matrix.
 
 Functions:
-    - matrix_shape(matrix): Returns the shape of a given matrix as a 
+    - matrix_shape(matrix): Returns the shape of a given matrix as a
     list of integers.
 """
 
