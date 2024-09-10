@@ -2,7 +2,7 @@
 
 """
 Module `4-line_up`
-This module contains a function that adds two arrays 
+This module contains a function that adds two arrays
 element-wise
 """
 
