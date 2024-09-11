@@ -4,7 +4,6 @@ Module `10-ill_use_my_scale`
 This module contains a function that calculates the
 shape of a numpy.ndarray
 """
-import numpy as np
 
 
 def np_shape(matrix):
