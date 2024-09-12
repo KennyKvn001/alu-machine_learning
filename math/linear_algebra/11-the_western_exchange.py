@@ -3,7 +3,6 @@
 Module `10-ill_use_my_scale`
 This module contains a function that cthat transposes matrix
 """
-import numpy as np
 
 
 def np_transpose(matrix):
