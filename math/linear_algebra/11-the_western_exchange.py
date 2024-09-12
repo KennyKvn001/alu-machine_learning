@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Module `10-ill_use_my_scale`
-This module contains a function that cthat transposes matrix
+Module `11-the_western_exchange`
+This module contains a function that transposes matrix
 """
 
 
