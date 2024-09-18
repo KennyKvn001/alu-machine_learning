@@ -10,15 +10,17 @@ def determinant(matrix):
     Calculate the determinant of a square matrix.
 
     Args:
-    matrix (list of lists): The input matrix whose determinant is to be calculated.
-                            Each inner list represents a row of the matrix.
+    matrix (list of lists):
+    The input matrix whose determinant is to be calculated.
+    Each inner list represents a row of the matrix.
 
     Returns:
     float or int: The determinant of the input matrix.
 
     Raises:
     TypeError: If the input is not a list of lists.
-    ValueError: If the input matrix is not square (i.e., number of rows != number of columns).
+    ValueError: If the input matrix is not square (i.e.,
+    number of rows != number of columns).
 
     """
 
