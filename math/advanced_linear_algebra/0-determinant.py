@@ -24,7 +24,8 @@ def determinant(matrix):
 
     """
 
-    if not isinstance(matrix, list) or not all(isinstance(row, list) for row in matrix):
+    if not isinstance(matrix, list) or not all(
+            isinstance(row, list) for row in matrix):
         raise TypeError("matrix must be a list of lists")
 
     n = len(matrix)
@@ -44,7 +45,7 @@ def determinant(matrix):
 
     det = 0
     for j in range(n):
-        submatrix = [row[:j] + row[j + 1 :] for row in matrix[1:]]
+        submatrix = [row[:j] + row[j + 1:] for row in matrix[1:]]
         sign = (-1) ** j
         det += sign * matrix[0][j] * determinant(submatrix)
 
