@@ -13,8 +13,9 @@ def definiteness(matrix):
     Calculate the definiteness of a given square matrix.
 
     Args:
-    matrix (numpy.ndarray): The input matrix whose definiteness is to be calculated.
-                            It should be a square matrix of shape (n, n).
+    matrix (numpy.ndarray): The input matrix whose definiteness
+    is to be calculated.
+    It should be a square matrix of shape (n, n).
 
     Returns:
     str or None: The definiteness of the matrix as a string,
