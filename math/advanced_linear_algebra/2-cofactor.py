@@ -13,8 +13,9 @@ def cofactor(matrix):
     negation (alternating signs).
 
     Args:
-    matrix (list of lists): The input matrix whose cofactor matrix is to be calculated.
-                            Each inner list represents a row of the matrix.
+    matrix (list of lists): The input matrix whose cofactor matrix
+    is to be calculated.
+    Each inner list represents a row of the matrix.
 
     Returns:
     list of lists: The cofactor matrix of the input matrix.
