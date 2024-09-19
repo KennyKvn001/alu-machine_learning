@@ -5,6 +5,9 @@ This module calculates the definiteness of a given matrix
 """
 
 
+import numpy as np
+
+
 def definiteness(matrix):
     """
     Calculate the definiteness of a given square matrix.
@@ -27,57 +30,33 @@ def definiteness(matrix):
     Raises:
     TypeError: If the input is not a numpy.ndarray.
     """
+    if not isinstance(matrix, np.ndarray):
+        raise TypeError("matrix must be a numpy.ndarray")
 
-    if not isinstance(matrix, list) or not all(
-            isinstance(row, list) for row in matrix):
+    if matrix.ndim != 2 or matrix.shape[0] != matrix.shape[1]:
         return None
 
-    n = len(matrix)
-    if n == 0 or any(len(row) != n for row in matrix):
+    if not np.allclose(matrix, matrix.T):
         return None
 
-    for i in range(n):
-        for j in range(i + 1, n):
-            if abs(matrix[i][j] - matrix[j][i]) > 1e-10:
-                return None
+    try:
+        eigenvalues = np.linalg.eigvals(matrix)
+    except np.linalg.LinAlgError:
+        return None
 
-    def determinant(mat):
-        """Calculate the determinant of a matrix."""
-        size = len(mat)
-        if size == 1:
-            return mat[0][0]
-        if size == 2:
-            return mat[0][0] * mat[1][1] - mat[0][1] * mat[1][0]
-        det = 0
-        for j in range(size):
-            submatrix = [row[:j] + row[j + 1:] for row in mat[1:]]
-            det += ((-1) ** j) * mat[0][j] * determinant(submatrix)
-        return det
+    pos_eig = np.sum(eigenvalues > 1e-10)
+    neg_eig = np.sum(eigenvalues < -1e-10)
+    zero_eig = np.sum(np.isclose(eigenvalues, 0, atol=1e-10))
 
-    determinants = []
-    for i in range(1, n + 1):
-        submatrix = [row[:i] for row in matrix[:i]]
-        determinants.append(determinant(submatrix))
-
-    pos_def = all(d > 1e-10 for d in determinants)
-    pos_semi_def = all(d >= -1e-10 for d in determinants) and any(
-        d > 1e-10 for d in determinants
-    )
-    neg_def = all((-1) ** (i + 1) * d > 1e-10 for i,
-                  d in enumerate(determinants))
-    neg_semi_def = all(
-        (-1) ** (i + 1) * d >= -1e-10 for i, d in enumerate(determinants)
-    ) and any((-1) ** (i + 1) * d > 1e-10 for i, d in enumerate(determinants))
-
-    if pos_def:
+    if pos_eig == len(eigenvalues):
         return "Positive definite"
-    elif pos_semi_def:
+    elif pos_eig + zero_eig == len(eigenvalues) and pos_eig > 0:
         return "Positive semi-definite"
-    elif neg_def:
+    elif neg_eig == len(eigenvalues):
         return "Negative definite"
-    elif neg_semi_def:
+    elif neg_eig + zero_eig == len(eigenvalues) and neg_eig > 0:
         return "Negative semi-definite"
-    elif any(d > 1e-10 for d in determinants) and any(d < -1e-10 for d in determinants):
+    elif pos_eig > 0 and neg_eig > 0:
         return "Indefinite"
     else:
         return None
