@@ -14,7 +14,7 @@ def summation_i_squared(n):
     Returns:
     int: The sum of the squares of the first n natural numbers. Returns None if n is not an integer.
     """
-    if n != int:
+    if not isinstance(n, int) or n <= 0:
         return None
-    total = sum(i**2 for i in range(1, n + 1))
-    return total
+
+    return (n * (n + 1) * (2 * n + 1)) // 6
