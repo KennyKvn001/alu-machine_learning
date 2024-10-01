@@ -16,6 +16,5 @@ def summation_i_squared(n):
     """
     if n != int:
         return None
-    for i in range(1, n + 1):
-        total = sum(i**2 for i in range(1, n + 1))
+    total = sum(i**2 for i in range(1, n + 1))
     return total
