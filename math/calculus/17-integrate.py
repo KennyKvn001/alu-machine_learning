@@ -42,7 +42,4 @@ def poly_integral(poly, C=0):
 
         integral.append(new_coef)
 
-    # Add the constant of integration C as the constant term (for x^0)
-    integral.insert(0, C)
-
     return integral
