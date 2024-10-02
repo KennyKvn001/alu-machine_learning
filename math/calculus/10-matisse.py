@@ -10,11 +10,13 @@ def poly_derivative(poly):
     This function calculates the derivative of a polynomial.
 
     Parameters:
-    poly (list): The coefficients of the polynomial in descending order of power.
+    poly (list): The coefficients of the polynomial in
+    descending order of power.
 
     Returns:
     list: The coefficients of the derivative of the polynomial.
-    Returns None if poly is not a list, is empty, or contains non-numeric elements.
+    Returns None if poly is not a list, is empty, or contains
+    non-numeric elements.
     """
 
     if (
