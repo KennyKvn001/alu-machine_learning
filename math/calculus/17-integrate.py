@@ -25,7 +25,8 @@ def poly_integral(poly, C=0):
       the function returns None.
     """
     integral = [C]
-    if not isinstance(poly, list) or not isinstance(C, (int, float)) or len(poly) == 0:
+    if not isinstance(poly, list) or not isinstance(
+            C, (int, float)) or len(poly) == 0:
         return None
     if not all(isinstance(coef, (int, float)) for coef in poly):
         return None
