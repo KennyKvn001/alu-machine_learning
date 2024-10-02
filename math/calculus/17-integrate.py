@@ -45,8 +45,4 @@ def poly_integral(poly, C=0):
     # Add the constant of integration C as the constant term (for x^0)
     integral.insert(0, C)
 
-    # Remove unnecessary trailing zeros (but keep at least one zero for the constant term)
-    while len(integral) > 1 and integral[-1] == 0:
-        integral.pop()
-
     return integral
