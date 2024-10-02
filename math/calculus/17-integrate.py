@@ -24,13 +24,12 @@ def poly_integral(poly, C=0):
       If the input poly or C are not valid,
       the function returns None.
     """
-
+    integral = [C]
     if not isinstance(poly, list) or not isinstance(C, (int, float)):
         return None
     if not all(isinstance(coef, (int, float)) for coef in poly):
         return None
 
-    integral = [C]
     # Iterate through the coefficients of the input polynomial.
     for i, coef in enumerate(poly):
         # Calculate the new coefficient after integrating (coef / (i + 1))
