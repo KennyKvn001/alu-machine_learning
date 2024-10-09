@@ -11,8 +11,10 @@ class Poisson:
         """
         Initialize the Poisson distribution.
 
-        :param data: List of data points to estimate the distribution (default is None)
-        :param lambtha: The expected number of occurrences in a given time frame (default is 1)
+        :param data: List of data points to estimate the
+        distribution (default is None)
+        :param lambtha: The expected number of occurrences
+        in a given time frame (default is 1)
         """
         if data is None:
             if lambtha <= 0:
