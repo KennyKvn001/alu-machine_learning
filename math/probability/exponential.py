@@ -47,3 +47,21 @@ class Exponential:
             else:
                 lambtha = float(len(data) / sum(data))
                 self.lambtha = lambtha
+
+    def pdf(self, x):
+        """
+        calculates the value of the PDF for a given time period
+
+        parameters:
+            x [int]: time period
+                If x is out of range, return 0
+
+        return:
+            the PDF value for x
+        """
+        if x < 0:
+            return 0
+        e = 2.7182818285
+        lambtha = self.lambtha
+        pdf = lambtha * (e ** (-lambtha * x))
+        return pdf
