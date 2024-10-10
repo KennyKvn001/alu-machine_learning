@@ -38,7 +38,8 @@ class Poisson:
         return result
 
     def exp(self, x):
-        """Manually calculates the exponential of x using a Taylor series expansion."""
+        """Manually calculates the exponential of x
+        using a Taylor series expansion."""
         result = 1  # The sum of the series starts with 1 (i.e., x^0 / 0!)
         term = 1  # Term is the individual terms of the series
         for i in range(1, 100):  # We use 100 terms for approximation
