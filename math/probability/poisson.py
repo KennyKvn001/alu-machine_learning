@@ -2,7 +2,6 @@
 """
 Poisson distribution
 """
-import math
 
 
 class Poisson:
