@@ -49,22 +49,24 @@ class Poisson:
 
     def pmf(self, k):
         """
-        Calculate the PMF for a given number of 'successes'.
+        calculates the value of the PMF for a given number of successes
 
-        :param k: Number of successes
-        :return: PMF value for the given k
+        parameters:
+            k [int]: number of successes
+                If k is not an int, convert it to int
+                If k is out of range, return 0
+
+        return:
+            the PMF value for k
         """
+        if type(k) is not int:
+            k = int(k)
         if k < 0:
             return 0
-
-        # Convert k to an integer if it's not already
-        k = int(k)
-
-        # Calculate the PMF using the Poisson formula: (e^(-λ) * λ^k) / k!
+        e = 2.7182818285
         lambtha = self.lambtha
-        e_term = 1 / self.exp(lambtha)  # Equivalent to e^(-λ)
-        lambda_term = lambtha**k  # λ^k
-        factorial_k = self.factorial(k)  # k!
-
-        pmf_value = (e_term * lambda_term) / factorial_k
-        return pmf_value
+        factorial = 1
+        for i in range(k):
+            factorial *= i + 1
+        pmf = ((lambtha**k) * (e**-lambtha)) / factorial
+        return pmf
