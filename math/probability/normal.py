@@ -109,23 +109,22 @@ class Normal:
         pdf = coefficient * (e**power)
         return pdf
 
+    def cdf(self, x):
+        """
+        calculates the value of the CDF for a given x-value
 
-def cdf(self, x):
-    """
-    calculates the value of the CDF for a given x-value
+        parameters:
+            x: x-value
 
-    parameters:
-        x: x-value
-
-    return:
-        the CDF value for x
-    """
-    mean = self.mean
-    stddev = self.stddev
-    pi = 3.1415926536
-    value = (x - mean) / (stddev * (2 ** (1 / 2)))
-    erf = value - ((value**3) / 3) + ((value**5) / 10)
-    erf = erf - ((value**7) / 42) + ((value**9) / 216)
-    erf *= 2 / (pi ** (1 / 2))
-    cdf = (1 / 2) * (1 + erf)
-    return cdf
+        return:
+            the CDF value for x
+        """
+        mean = self.mean
+        stddev = self.stddev
+        pi = 3.1415926536
+        value = (x - mean) / (stddev * (2 ** (1 / 2)))
+        erf = value - ((value**3) / 3) + ((value**5) / 10)
+        erf = erf - ((value**7) / 42) + ((value**9) / 216)
+        erf *= 2 / (pi ** (1 / 2))
+        cdf = (1 / 2) * (1 + erf)
+        return cdf
