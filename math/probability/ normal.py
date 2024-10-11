@@ -36,7 +36,8 @@ class Normal:
         If data is given:
             Calculate the mean and stddev of data
             Raise TypeError if data is not a list
-            Raise ValueError if data does not contain at least two data points
+            Raise ValueError if data does not contain
+            at least two data points
         """
         if data is None:
             if stddev < 1:
