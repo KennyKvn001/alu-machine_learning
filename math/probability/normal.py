@@ -74,3 +74,18 @@ class Normal:
         stddev = self.stddev
         z = (x - mean) / stddev
         return z
+
+    def x_value(self, z):
+        """
+        calculates the x-value of a given z-score
+
+        parameters:
+            z: z-score
+
+        return:
+            x-value of z
+        """
+        mean = self.mean
+        stddev = self.stddev
+        x = (z * stddev) + mean
+        return x
