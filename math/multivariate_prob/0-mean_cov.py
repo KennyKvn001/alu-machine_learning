@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 import numpy as np
 
-""" Mean Cov """
+""" Mean Cov is module that Calculates the mean and
+covariance of a dataset."""
 
 
 def mean_cov(X):
@@ -15,8 +16,10 @@ def mean_cov(X):
 
     Returns:
     tuple: A tuple (mean, cov):
-           - mean is a numpy.ndarray of shape (1, d) containing the mean of the dataset.
-           - cov is a numpy.ndarray of shape (d, d) containing the covariance matrix of the dataset.
+           - mean is a numpy.ndarray of shape (1, d) containing
+           the mean of the dataset.
+           - cov is a numpy.ndarray of shape (d, d) containing the
+           covariance matrix of the dataset.
 
     Raises:
     TypeError: If X is not a 2D numpy.ndarray.
