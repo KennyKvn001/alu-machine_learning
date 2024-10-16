@@ -67,7 +67,7 @@ class MultiNormal:
             raise TypeError("x must be a numpy.ndarray")
 
         if x.shape != (self.d, 1):
-            raise ValueError(f"x must have the shape ({self.d}, 1)")
+            raise ValueError("x must have the shape ({}, 1)".format(self.d))
 
         # Calculate the PDF using the multivariate Gaussian formula
         diff = x - self.mean  # Difference between x and the mean
