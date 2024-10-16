@@ -71,8 +71,8 @@ class MultiNormal:
 
         # Calculate the PDF using the multivariate Gaussian formula
         diff = x - self.mean  # Difference between x and the mean
-        exponent = -0.5 * np.dot(np.dot(diff.T, self.cov_inv), diff)  # Exponent term
-        denominator = np.sqrt((2 * np.pi) ** self.d * self.cov_det)  # Denominator term
+        exponent = -0.5 * np.dot(np.dot(diff.T, self.cov_inv), diff)
+        denominator = np.sqrt((2 * np.pi) ** self.d * self.cov_det)
 
         pdf_value = (1 / denominator) * np.exp(exponent)  # PDF value
 
