@@ -14,7 +14,8 @@ class MultiNormal:
 
         Parameters:
         data (numpy.ndarray): A 2D numpy array of shape (d, n), where:
-                              - d is the number of dimensions for each data point
+                              - d is the number of dimensions for
+                              each data point
                               - n is the number of data points
 
         Raises:
