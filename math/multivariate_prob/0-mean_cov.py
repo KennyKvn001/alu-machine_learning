@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-import numpy as np
-
 """ Mean Cov is module that Calculates the mean and
 covariance of a dataset."""
+import numpy as np
 
 
 def mean_cov(X):
