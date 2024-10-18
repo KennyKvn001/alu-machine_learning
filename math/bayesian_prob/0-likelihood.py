@@ -8,7 +8,8 @@ from scipy.stats import binom
 
 def likelihood(x, n, P):
     """
-     Calculate the likelihood of obtaining observed data for various hypothetical probabilities
+     Calculate the likelihood of obtaining observed data for
+     various hypothetical probabilities
     of developing severe side effects in a drug trial.
 
     This function uses the binomial distribution to model the probability of observing
@@ -22,7 +23,8 @@ def likelihood(x, n, P):
     n : int
         The total number of patients observed in the trial.
     P : numpy.ndarray
-        A 1D array containing various hypothetical probabilities of developing severe side effects.
+        A 1D array containing various hypothetical probabilities of \
+            developing severe side effects.
 
     Returns:
     --------
