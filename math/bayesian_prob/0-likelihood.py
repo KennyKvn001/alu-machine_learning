@@ -12,8 +12,10 @@ def likelihood(x, n, P):
      various hypothetical probabilities
     of developing severe side effects in a drug trial.
 
-    This function uses the binomial distribution to model the probability of observing
-    a certain number of patients with severe side effects given different probabilities
+    This function uses the binomial distribution to model
+    the probability of observing
+    a certain number of patients with severe side effects
+    given different probabilities
     of side effect occurrence.
 
     Parameters:
@@ -23,13 +25,14 @@ def likelihood(x, n, P):
     n : int
         The total number of patients observed in the trial.
     P : numpy.ndarray
-        A 1D array containing various hypothetical probabilities of \
+        A 1D array containing various hypothetical probabilities of
             developing severe side effects.
 
     Returns:
     --------
     numpy.ndarray
-        A 1D array containing the likelihood of obtaining the observed data (x out of n)
+        A 1D array containing the likelihood of obtaining
+        the observed data (x out of n)
         for each probability in P, respectively.
     """
     # Input validation
