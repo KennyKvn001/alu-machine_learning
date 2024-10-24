@@ -4,50 +4,38 @@
 import numpy as np
 
 
+import numpy as np
+
+
 def convolve_grayscale_same(images, kernel):
-    """
-    Performs a same convolution on grayscale images.
-
+    """Performs a valid convolution on grayscale images
     Args:
-        images (numpy.ndarray):
-        A numpy array of shape (m, h, w) containing multiple grayscale images,
-                                where:
-                                - m is the number of images.
-                                - h is the height in pixels of the images.
-                                - w is the width in pixels of the images.
-        kernel (numpy.ndarray):
-        A numpy array of shape (kh, kw) containing the kernel for the convolution,
-                                where:
-                                - kh is the height of the kernel.
-                                - kw is the width of the kernel.
-
+        images: `numpy.ndarray` with shape (m, h, w)
+            containing multiple grayscale images
+            m: `int`, is the number of images
+            h: `int`, is the height in pixels of the images
+            w: `int`, is the width in pixels of the images
+        kernel: `numpy.ndarray` with shape (kh, kw)
+            containing the kernel for the convolution
+            kh: `int`, is the height of the kernel
+            kw: `int`, is the width of the kernel
     Returns:
-        numpy.ndarray: A numpy array of shape (m, h, w) containing the convolved images.
+         output: `numpy.ndarray` containing the convolved images
     """
-    # Extract dimensions of images and kernel
-    m, h, w = images.shape
-    kh, kw = kernel.shape
-
-    # Determine the padding needed for height and width (same convolution)
-    pad_h = (kh - 1) // 2
-    pad_w = (kw - 1) // 2
-
-    # Pad images with zeros
-    padded_images = np.pad(
-        images, ((0, 0), (pad_h, pad_h), (pad_w, pad_w)), mode="constant"
-    )
-
-    # Initialize the output array for the convolved images
-    output = np.zeros((m, h, w))
-
-    # Iterate over each image
-    for i in range(m):
-        # Iterate over the height and width of the image
-        for y in range(h):
-            for x in range(w):
-                # Perform element-wise multiplication and summing for convolution
-                output[i, y, x] = np.sum(
-                    kernel * padded_images[i, y : y + kh, x : x + kw]
-                )
-
-    return output
+    m, h, w = images.shape[0], images.shape[1], images.shape[2]
+    kh, kw = kernel.shape[0], kernel.shape[1]
+    pw = int(kw / 2)
+    ph = int(kh / 2)
+    convolved = np.zeros((m, h, w))
+    npad = ((0, 0), (ph, ph), (pw, pw))
+    imagesp = np.pad(
+        images,
+        pad_width=npad,
+        mode="constant",
+        constant_values=0)
+    for i in range(h):
+        for j in range(w):
+            image = imagesp[:, i: i + kh, j: j + kw]
+            convolved[:, i, j] = np.sum(
+                np.multiply(image, kernel), axis=(1, 2))
+    return convolved
