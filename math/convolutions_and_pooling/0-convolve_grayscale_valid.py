@@ -3,44 +3,50 @@
 import numpy as np
 
 
+import numpy as np
+
+
 def convolve_grayscale_valid(images, kernel):
     """
     Performs a valid convolution on grayscale images.
 
     Args:
-        images (numpy.ndarray):
-        A numpy array of shape (m, h, w) containing multiple grayscale images,
+        images (numpy.ndarray): A numpy array of shape (m, h, w)
+        containing multiple grayscale images,
                                 where:
                                 - m is the number of images.
                                 - h is the height in pixels of the images.
                                 - w is the width in pixels of the images.
-        kernel (numpy.ndarray):
-        A numpy array of shape (kh, kw) containing the kernel for the convolution,
+        kernel (numpy.ndarray): A numpy array of shape (kh, kw)
+        containing the kernel for the convolution,
                                 where:
                                 - kh is the height of the kernel.
                                 - kw is the width of the kernel.
 
     Returns:
         numpy.ndarray: A numpy array containing the convolved
-        images with reduced dimensions.
+        images with reduced dimensions (valid convolution).
     """
-    # Extract dimensions of images and kernel
+    # Extract dimensions of the images and kernel
     m, h, w = images.shape
     kh, kw = kernel.shape
 
     # Calculate the output dimensions after valid convolution
-    output_h = h - kh + 1
-    output_w = w - kw + 1
+    nh = h - kh + 1
+    nw = w - kw + 1
 
     # Initialize the output array for the convolved images
-    output = np.zeros((m, output_h, output_w))
+    convolved = np.zeros((m, nh, nw))
 
-    # Iterate over each image
-    for i in range(m):
-        # Iterate over the height and width of the valid output space
-        for y in range(output_h):
-            for x in range(output_w):
-                # Perform element-wise multiplication and summing for convolution
-                output[i, y, x] = np.sum(kernel * images[i, y : y + kh, x : x + kw])
+    # Perform the convolution
+    for i in range(nh):
+        for j in range(nw):
+            # Extract the patch from each image that corresponds to the kernel
+            # size
+            image_patch = images[:, i: i + kh, j: j + kw]
+            # Perform element-wise multiplication and sum the results over axis
+            # 1 and 2 (height and width)
+            convolved[:, i, j] = np.sum(
+                np.multiply(image_patch, kernel), axis=(1, 2))
 
-    return output
+    return convolved
