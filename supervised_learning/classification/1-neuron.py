@@ -41,30 +41,3 @@ class Neuron:
     def A(self):
         """Getter for the activated output."""
         return self.__A
-
-    @A.setter
-    def A(self, value):
-        """Setter for the activated output."""
-        self.__A = value
-
-    def forward_prop(self, X):
-        """
-        Performs forward propagation for the neuron.
-
-        Args:
-            X (numpy.ndarray): Input data of shape (nx, m), where m is the number of examples.
-
-        Returns:
-            numpy.ndarray: The activated output of the neuron.
-        """
-        # Ensure X has the correct shape (nx, m)
-        if X.shape[0] != self.__W.shape[1]:
-            raise ValueError(f"Input X must have shape ({self.__W.shape[1]}, m)")
-
-        # Linear transformation: Z = W.X + b
-        Z = np.dot(self.__W, X) + self.__b
-
-        # Sigmoid activation: A = 1 / (1 + exp(-Z))
-        self.__A = 1 / (1 + np.exp(-Z))
-
-        return self.__A
