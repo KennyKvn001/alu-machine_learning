@@ -148,7 +148,8 @@ class Neuron:
             X (numpy.ndarray): Input data with shape (nx, m),
                                where nx is the number of input features,
                                and m is the number of examples.
-            Y (numpy.ndarray): Correct labels for the input data with shape (1, m).
+            Y (numpy.ndarray): Correct labels for the input data
+            with shape (1, m).
             iterations (int): The number of iterations to train over.
             alpha (float): The learning rate.
 
