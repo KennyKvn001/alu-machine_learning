@@ -78,7 +78,8 @@ class Neuron:
         m = Y.shape[1]  # Number of examples
 
         # Compute cost using logistic regression cost function
-        cost = -(1 / m) * np.sum(Y * np.log(A) + (1 - Y) * np.log(1.0000001 - A))
+        cost = -(1 / m) * np.sum(Y * np.log(A) +
+                                 (1 - Y) * np.log(1.0000001 - A))
 
         return cost
 
