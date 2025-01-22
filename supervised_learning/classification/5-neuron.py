@@ -68,7 +68,8 @@ class Neuron:
 
         Args:
             Y (numpy.ndarray): Correct labels for the input data with shape (1, m).
-            A (numpy.ndarray): Activated output of the neuron for each example with shape (1, m).
+            A (numpy.ndarray): Activated output of the neuron for each
+            example with shape (1, m).
 
         Returns:
             float: The cost of the model.
@@ -76,7 +77,8 @@ class Neuron:
         m = Y.shape[1]  # Number of examples
 
         # Compute cost using logistic regression cost function
-        cost = -(1 / m) * np.sum(Y * np.log(A) + (1 - Y) * np.log(1.0000001 - A))
+        cost = -(1 / m) * np.sum(Y * np.log(A) +
+                                 (1 - Y) * np.log(1.0000001 - A))
 
         return cost
 
@@ -92,7 +94,8 @@ class Neuron:
 
         Returns:
             tuple: The neuron’s prediction and the cost of the network.
-                - prediction: numpy.ndarray with shape (1, m) containing the predicted labels (1 if >= 0.5, else 0).
+                - prediction: numpy.ndarray with shape (1, m)
+                  containing the predicted labels (1 if >= 0.5, else 0).
                 - cost: float representing the cost of the network.
         """
         # Perform forward propagation to calculate predictions
@@ -114,8 +117,10 @@ class Neuron:
             X (numpy.ndarray): Input data with shape (nx, m),
                                where nx is the number of input features,
                                and m is the number of examples.
-            Y (numpy.ndarray): Correct labels for the input data with shape (1, m).
-            A (numpy.ndarray): Activated output of the neuron for each example with shape (1, m).
+            Y (numpy.ndarray): Correct labels for the input
+            data with shape (1, m).
+            A (numpy.ndarray): Activated output of the neuron f
+            or each example with shape (1, m).
             alpha (float): The learning rate.
 
         Updates:
