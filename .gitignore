@@ -3,3 +3,4 @@
 /math/plotting/pca.npz
 aivenv
 data/
+/supervised_learning/tensorenv
