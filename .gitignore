@@ -4,3 +4,4 @@
 aivenv
 data/
 /supervised_learning/tensorenv
+/reinforcement_learning/deep_q_learning/.venv

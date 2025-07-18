@@ -1,0 +1,11 @@
+[project]
+name = "deep-q-learning"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "gym>=0.26.2",
+    "tensorflow>=2.13.0",
+    "numpy>=1.21.0",
+]
